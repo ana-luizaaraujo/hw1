@@ -139,7 +139,6 @@ CREATE TABLE actors (
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
 
 INSERT INTO studios(
     name
@@ -332,20 +331,24 @@ INSERT INTO actors(
     "Selina Kyle",
     3
 );
+
 -- Prints a header for the movies output
 .print "Movies"
-.print "Studios"
-.print ""
+.print "======="
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT movies.title, movies.year, movies.MPAA_rating, studios.name 
+FROM movies
+INNER JOIN studios ON studios.id = movies.studio_id;
+
 
 -- Prints a header for the cast output
---.print ""
---.print "Top Cast"
---.print "========"
---.print ""
-
+.print "         "
+.print "Top Cast"
+.print "======="
 
 -- The SQL statement for the cast output
 -- TODO!
+SELECT movies.title, actors.name, actors.character
+FROM movies
+INNER JOIN actors ON movies.id = actors.movie_id;
